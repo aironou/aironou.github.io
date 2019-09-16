@@ -12,5 +12,8 @@
     "url": "https://github.com/aironou/aironou.github.io/issues",
     "email": "aironou.github.io@aironou.com.br"
   },
-  "homepage": "https://github.com/aironou/aironou.github.io#readme"
+  "homepage": "https://github.com/aironou/aironou.github.io#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
