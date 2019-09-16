@@ -1,0 +1,5 @@
+version: '3'
+services:
+  image:
+    build: .
+    image: aironou/aironou.github.io-node
