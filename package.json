@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/aironou/aironou.github.io#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-mustache": "^4.1.2"
   }
 }
