@@ -1,8 +1,0 @@
-version: '3'
-services:
-  node:
-    build: .
-    image: aironou/aironou.github.io:node
-    container_name: aironou-aironou-github-io-node
-    volumes:
-      - .:/aironou.github.io
