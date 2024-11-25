@@ -1,0 +1,3 @@
+[submodule "modules/master-password"]
+	path = modules/master-password
+	url = https://github.com/aironou/master-password
