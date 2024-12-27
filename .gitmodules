@@ -1,3 +1,4 @@
-[submodule "modules/master-password"]
-	path = modules/master-password
-	url = https://github.com/aironou/master-password
+[submodule "tools/master-password"]
+	path = tools/master-password
+	url = https://github.com/aironou/master-password.git
+	branch = platform-independent/web
