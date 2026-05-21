@@ -1,0 +1,43 @@
+name: deploy aironou.com.br
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    concurrency:
+      cancel-in-progress: true
+      group: "build"
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: setup pages
+        uses: actions/configure-pages@v5
+
+  deploy:
+    needs: build
+    concurrency:
+      cancel-in-progress: true
+      group: "deploy"
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: deploy pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.0
