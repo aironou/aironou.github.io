@@ -1,4 +1,4 @@
-name: deploy github pages
+name: deploy static files
 
 on:
   push:
@@ -17,20 +17,20 @@ concurrency:
 jobs:
   deploy:
     environment:
-      name: deploy
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: setup
+      - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: upload
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-      - name: deploy
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5.0.0
+        uses: actions/deploy-pages@v4
